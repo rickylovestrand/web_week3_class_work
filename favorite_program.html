@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Favorite Program</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+  <link rel="stylesheet" href="favorite-program-styles.css">
+</head>
+<body>
+  <div class="jumbotron">
+    <h1>Scrabble Scorekeeper</h1>
+  </div>
+  <div>
+    <h3>What is Scrabble Scorekeeper?</h3>
+    <p>Scrabble Scorekeeper is a program I wrote for 2505-01 Visual C#.Net Programming. It can be used to store
+        the words played and points scored in a scrabble game. It has a backend database so you can lookup 
+        historical data and statistics about any scrabble game data. 
+    </p>
+  </div>
+  <div>
+    <h3>What did the code look like?</h3>
+    <p>Here's the code that created a new player:</p>
+    <pre>
+        <code>
+            private void CreatePlayer(object sender, EventArgs e)
+            {
+                frmCreatePlayer createPlayer = new frmCreatePlayer();
+                DialogResult result = createPlayer.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    lstPlayers.Items.Clear();
+                    List<Players> allPlayers = PlayersDB.GetPlayers();
+                    foreach (Players p in allPlayers)
+                        lstPlayers.Items.Add(p);
+                }
+        </code>
+    </pre>
+    <p>Here's part of the code that created a new game:</p>
+    <pre>
+        <code>
+            public void btnStartNewGame_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Validation.IsTwoToFourPlayers(lstPlayers))
+                {
+                    //Create new game object
+      
+                    Games game = new Games();
+                    game.NumberOfPlayers = lstPlayers.SelectedIndices.Count;
+                    game.DatePlayed = DateTime.Today;
+                    int gameId = GamesDB.AddGame(game);
+
+                    frmScrabbleGame scrabblegame = new frmScrabbleGame();
+        </code>
+    </pre>
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+
+
+label {
+    font-weight: bold;
+}
+
+.form-check-label {
+    font-weight: normal
+}
+
+.col-sm-8 {
+    font-weight: normal;
+}
+
+h1 {
+    font-family: 'Vollkorn', serif;
+    text-align: center;
+    padding: 1em;
+}
+
+body {
+    background-image: linear-gradient(to bottom, #F8CA7B, #FFFFFF);
+}

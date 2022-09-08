@@ -1,0 +1,19 @@
+.missile-link {
+    display: table-cell;
+    padding: 1em 1em;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+#test-only {
+    background-color: navy;
+    color: white
+
+}
+
+#real-alert {
+    background-color: black;
+    font-style: bold;
+    color:red
+
+}
